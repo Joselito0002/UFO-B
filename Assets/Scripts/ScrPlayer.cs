@@ -11,12 +11,13 @@ public class ScrPlayer : MonoBehaviour
 
     //Para acceder al componente Rigidbody2D(rb de rigidbody):
     Rigidbody2D rb; //Tipo nombre;
-
+    ScrPickup scrP;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //apunta al component rigidbody del player
+        
     }
 
     // Update is called once per frame
@@ -39,9 +40,14 @@ public class ScrPlayer : MonoBehaviour
         //if (collision.tag == "pickup") Destroy(collision.gameObject);
         if (collision.CompareTag("pickup"))
         {
+            scrP = collision.GetComponent<ScrPickup>();
+            ScrControlGame.punts += scrP.valor;
+            ScrControlGame.pickupsRestant--;
             Destroy(collision.gameObject);
-            ScrControlGame.punts += 5;
-            print("Puntuació: " + ScrControlGame.punts);
+            ScrControlGame.pickups--;
+            
+            
         }
     }
+
 }   
