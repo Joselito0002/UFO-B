@@ -21,8 +21,11 @@ public class ScrUI : MonoBehaviour
     Text puntuacio;  //accedir a l'element del UI
     [SerializeField]
     Text pickupsRestant;
+    [SerializeField]
     Text temps;
-
+    [SerializeField]
+    Text acabaNivell;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,10 @@ public class ScrUI : MonoBehaviour
     {
         puntuacio.text = "Puntuació: " + ScrControlGame.punts;
         pickupsRestant.text = "Pickups: " + ScrControlGame.pickupsRestant;
+
+        temps.text = "Temps:  " + Time.fixedTime;
+        
+
     }
 
 }
